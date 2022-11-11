@@ -1,17 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import App from './App.js'; // import functionName from filename.js
+import HomeApp from './homeapp'; //add this line
+
 import reportWebVitals from './reportWebVitals';
+// const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ if(localStorage.getItem("adminid") !=null ){
+   ReactDOM.render( <App/> , document.getElementById('root') );
+ }else{
+   ReactDOM.render( <HomeApp/> , document.getElementById('root') );
+ }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+ 
+
+/*
+   root.render(
+      <React.StrictMode>
+      <App/>       // modify this line
+      </React.StrictMode>
+   );
+
+ */
+
 reportWebVitals();
+
+/*
+   javaScript - App();
+   JSX        - <App/>
+   user->brouser <=index.html <= index.js <=app.js
+*/
