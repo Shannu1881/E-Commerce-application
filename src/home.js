@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const Home  = () =>{
     const[productlist, updateProduct] = useState([]);
+    const[msg, updateMsg] = useState("");
+    const[search, setSearch] =  useState("");
    
     const getProduct = () =>{
         axios.get("http://localhost:1234/product")
@@ -17,7 +19,7 @@ const Home  = () =>{
         getProduct();
     }, [1]);
 
-    const[msg, updateMsg] = useState("");
+    
     const addtoCart = (productinfo) =>{
         var url = "http://localhost:1234/cart";
         axios.post(url, productinfo)
@@ -26,15 +28,24 @@ const Home  = () =>{
         })
     }
 
+    const onChange = (e) =>{
+        setSearch(e.target.value)
+    }
+
     return(
         <div className='container mt-5'>
             <div className='row'>
-                <div className='col-lg-12 mb-3'>
+                <div className='col-lg-12 mt-5 mb-5'>
                     <h1 className='text-center text-primary'>Home Shopping </h1>
                     <p className='text-danger text-center'> {msg} </p>
+                    <label> <strong style={{fontSize:"18px"}}>Search here </strong></label> &nbsp;
+                    <input className='p-1 shadow' type='text' onChange={onChange} value={search} placeholder='searching.....'
+                      style={{width:"25%", borderRadius:"10px"}}
+                    />
                 </div>
+                <div className=''></div>
                 {
-                    productlist.map((product, index)=>{
+                    productlist.filter(product => product.name.toLowerCase().includes(search)).map((product, index)=>{
                         return(
                             <div className="col-lg-3 mb-5" key={index}>
                                 <div className='p-3 shadow'>

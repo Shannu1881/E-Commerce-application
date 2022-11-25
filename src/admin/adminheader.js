@@ -8,7 +8,7 @@ const AdminHeader = () =>{
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand text-warning">
-                       <i className='fa fa-shopping-bag fa-lg'></i> Keen Shopping
+                       <i className='fa fa-shopping-bag fa-lg'></i> Keep Shopping
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

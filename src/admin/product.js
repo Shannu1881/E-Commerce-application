@@ -58,7 +58,7 @@ const AdminProduct = () =>{
         <AdminHeader/>
         <div className="container mt-5">
             <div className="row">
-                <div className='col-lg-3'>
+                <div className='col-lg-3 mt-4'>
                     <h4> Add Product </h4>
                     <div className='mb-3'>
                         <label>Product Name</label>
@@ -89,10 +89,10 @@ const AdminProduct = () =>{
                         onClick={save}> Save Product </button>
                     </div>
                 </div>
-                <div className='col-lg-9'>
+                <div className='col-lg-9 mt-4'>
                     <h4 className='text-center'> {allproduct.length} - Available Products </h4>
                     <p className="text-center text-danger"> {msg} </p>
-                    <table className="table table-bordered mt-3 shadow">
+                    <table className="table table-bordered mt-3 shadow text-center">
                         <thead>
                             <tr className='bg-light text-primary'>
                                 <th>Id</th>
@@ -112,7 +112,7 @@ const AdminProduct = () =>{
                                            <td> {pinfo.name} </td>
                                            <td> {pinfo.price} </td>
                                            <td> {pinfo.details} </td>
-                                           <td> 
+                                            <td> 
                                                 <img height={50} width={50} src={pinfo.photo}/>
                                             </td>
                                             <td>
@@ -120,7 +120,7 @@ const AdminProduct = () =>{
                                                 className="fa fa-trash fa-lg text-danger"
                                                 onClick={deletePro.bind(this, pinfo.id, pinfo.name)}>
                                                 </i>
-                                            </td>
+                                            </td> 
                                         </tr>
                                     )
                                 })
